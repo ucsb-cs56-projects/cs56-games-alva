@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project default="compile">
+
+  <property name="mainClass" value="edu.ucsb.cs56.projects.game.alva.GameMain" />
+
+  <property name="javadocDest" value="${webRoot}/${projectPath}/javadoc" /> 
+  <property name="javadocURL" value="${webBaseUrl}/${projectPath}/javadoc" /> 
+
+  <path id="project.class.path">
+    <pathelement location="build"/>
+    <pathelement location="lib/junit-4.8.2.jar" />
+  </path>
+
+  <target name="compile" >
+    <mkdir dir="build" />
+    <javac srcdir="src" destdir="build" debug="true" debuglevel="lines,vars,source" includeantruntime="false">
+      <classpath refid="project.class.path" />
+    </javac>
+  </target>
+
+  <target name="run" depends="compile">
+    <java classname="${mainClass}" classpath="build" fork="true" />  
+  </target>
+
+  <target name="clean" >
+    <delete dir="build" quiet="true" />
+    <delete dir="dist" quiet="true" />
+    <delete dir="javadoc" quiet="true" />
+  </target>
+
+  <target name="test" depends="compile">
+    <junit haltonerror="no" haltonfailure="no">
+      <classpath refid="project.class.path" />
+
+      <batchtest fork="yes">
+        <fileset dir="src">
+          <!-- this will pick up every class with a name ending in Test -->
+          <include name="**/*Test.java"/>
+        </fileset>
+      </batchtest>
+
+      <formatter type="plain" usefile="false" /> 
+      
+    </junit>
+  </target>
+
+  <target name="javadoc" depends="compile">
+    <delete dir="javadoc" quiet="true" />
+    <javadoc destdir="javadoc" author="true" version="true" use="true">
+      <fileset dir="src" includes="**/*.java" />
+      <classpath refid="project.class.path" />
+    </javadoc>
+  </target>
+  
+  <target name="jar" depends="compile">
+    <mkdir dir="dist" />
+    <jar destfile="dist/${projectName}.jar" basedir="build" >
+      <manifest>
+        <attribute name="Main-Class" value="${mainClass}"/>
+      </manifest>
+    </jar>
+  </target>
+  
+
+</project>
