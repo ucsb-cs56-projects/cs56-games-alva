@@ -45,7 +45,7 @@ public class World implements Serializable {
 	    }
 	}
 	for (Entity e : entities) {
-d	    e.update(win);
+	    e.update(win);
 	}
     }
 
