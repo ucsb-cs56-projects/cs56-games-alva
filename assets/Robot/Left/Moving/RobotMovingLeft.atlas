@@ -1,0 +1,33 @@
+
+RobotMovingLeft.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+robotmovingframe4
+  rotate: false
+  xy: 1, 104
+  size: 71, 103
+  orig: 71, 103
+  offset: 0, 0
+  index: -1
+robotmovingframe1
+  rotate: false
+  xy: 74, 105
+  size: 71, 102
+  orig: 71, 102
+  offset: 0, 0
+  index: -1
+robotmovingframe3
+  rotate: false
+  xy: 74, 1
+  size: 71, 102
+  orig: 71, 102
+  offset: 0, 0
+  index: -1
+robotmovingframe2
+  rotate: false
+  xy: 1, 1
+  size: 71, 101
+  orig: 71, 101
+  offset: 0, 0
+  index: -1
