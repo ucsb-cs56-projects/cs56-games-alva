@@ -13,6 +13,7 @@ public class Robot extends Entity {
 	
     private static Robot r;
     private boolean isGrabbing;
+    public boolean isleft;
   
     private Robot() {
         super(new Vector2(200, 400), new Vector2(0, 0), 65, 100);
@@ -32,7 +33,12 @@ public class Robot extends Entity {
     
     @Override
     public void drawIt(Graphics2D win) {
-        Assets.robotAnim.animate(this, win);
+	if(isleft){
+	    Assets.robotAnim_left.animate(this, win);
+	}
+	else{
+	    Assets.robotAnim.animate(this, win);
+	}
     }
 
     public boolean isGrabbing() {

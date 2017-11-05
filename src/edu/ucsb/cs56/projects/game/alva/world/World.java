@@ -22,7 +22,7 @@ public class World implements Serializable {
     
     public static final Tile steelX = new Tile(0, 0, TileType.STEELX);
     public static final Tile platform = new Tile(0, 0, TileType.XPLATFORM);
-
+    public static final Tile background = new Tile(0, 0, TileType.BACKGROUND);
     public World(int width, int height, Vector2 spawnPoint, Vector2 endPoint) {
 	this.width = width;
 	this.height = height;

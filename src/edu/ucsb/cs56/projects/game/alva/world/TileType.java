@@ -7,7 +7,9 @@ import edu.ucsb.cs56.projects.game.alva.Assets;
 public enum TileType {
     STEELX(Assets.redTile, false),
     XPLATFORM(Assets.platformTile, false),
-    SWITCH(Assets.Switch1, true);
+    SWITCH(Assets.Switch1, true),
+    BACKGROUND(Assets.BackgroundTile,true);
+    
           
     private final Texture t;
     private boolean isPassable;

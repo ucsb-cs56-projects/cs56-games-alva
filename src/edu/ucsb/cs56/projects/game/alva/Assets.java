@@ -9,6 +9,7 @@ public class Assets {
     
     public static Texture redTile;
     public static Texture platformTile;
+    public static Texture BackgroundTile;
     public static Texture robot;
     public static Texture robot_left;
     public static Texture box;
@@ -22,8 +23,9 @@ public class Assets {
     public static void loadAssets() {
     	Switch1 = new Texture(GameDriver.addImage("src/assets/Switch.png"));
     	Switch2 = new Texture(GameDriver.addImage("src/assets/Switch2.png"));
-        redTile = new Texture(GameDriver.addImage("src/assets/Steel X.png"));
-        platformTile = new Texture(GameDriver.addImage("src/assets/Steel X Platform.png"));
+        redTile = new Texture(GameDriver.addImage("assets/Tiles/Steel_X.png"));
+        platformTile = new Texture(GameDriver.addImage("assets/Tiles/Steel_X_Platform.png"));
+	BackgroundTile = new Texture(GameDriver.addImage("assets/Tiles/Background.png"));
         robot = new Texture(GameDriver.addImage("src/assets/Robot.png"));
 	robot_left = new Texture(GameDriver.addImage("assets/Robot/Left/Moving/robotmovingframe1.png"));
         box = new Texture(GameDriver.addImage("src/assets/Moveable box.png"));
@@ -34,8 +36,8 @@ public class Assets {
 	robotAnim_left = new Animation(20);
 	int j;
 	int k;
-        for( k = 0; k < 206; k += 103){
-	    for(j = 0; j < 140; j += 70){
+        for( k = 0; k < 208; k += 104){
+	    for(j = 0; j < 146; j += 73){
 		robotAnim_left.addFrame(new Texture(robotleftSpriteSheet.getSubimage(j,k,70,103)));
 	    }
 	}

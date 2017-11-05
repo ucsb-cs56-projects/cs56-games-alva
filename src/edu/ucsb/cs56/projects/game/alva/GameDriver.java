@@ -37,7 +37,7 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		keys = new boolean[16];
 
 
-    	setBackground(Color.WHITE);
+    	setBackground(Color.BLACK);
 		setVisible(true);
 
 		new Thread(this).start();

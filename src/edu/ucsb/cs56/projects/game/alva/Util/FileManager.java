@@ -13,7 +13,8 @@ public class FileManager {
 	private final int wallTile = 1;
 	private final int floorTile = 2;
 	private final int box = 3;
-	private final int Switch = 4;
+        private final int Switch = 4;
+        private final int Back = 5;
 	
 	public World loadWorld(File f) {
 		World w = null;
@@ -56,7 +57,8 @@ public class FileManager {
 					case wallTile: w.addTile(i, counter - 1, World.steelX); break;
 					case floorTile: w.addTile(i, counter - 1, World.platform); break;
 					case box: w.addEntity(new Box(new Vector2(i * 100, (counter - 1) * 100))); break;
-					case Switch: w.addSwitch(new Switch(i, (counter - 1), w), i, (counter - 1));
+					case Switch: w.addSwitch(new Switch(i, (counter - 1), w), i, (counter - 1));break;
+					case Back: w.addTile(i, counter-1, World.background);break;
 					}
 				}
 				

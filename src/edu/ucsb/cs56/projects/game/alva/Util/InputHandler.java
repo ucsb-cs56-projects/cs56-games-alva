@@ -52,8 +52,10 @@ public class InputHandler {
 		}
 
 		if (keys[2]) {
+		    r.isleft = true;
 			moveLeft.execute();
 		} else if (keys[3]) {
+		    r.isleft = false;
 			moveRight.execute();
 		} else {
 			standStill.execute();

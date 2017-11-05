@@ -67,7 +67,7 @@ public class MainComp extends GameDriver {
     }
 
     public void render(Graphics2D win) {
-	win.setColor(Color.WHITE);
+	win.setColor(Color.BLACK);
 	win.fill(clear);
 	w.render(win);
     }
