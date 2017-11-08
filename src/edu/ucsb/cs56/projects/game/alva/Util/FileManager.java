@@ -60,15 +60,15 @@ public class FileManager {
 					    w.addTile(i, counter - 1, World.steelX);
 					    break;
 					case floorTile:
+					    w.addTile(i, counter-1, World.background);
 					    w.addTile(i, counter - 1, World.platform);
-					    //w.addTile(i, counter-1, World.background);
 					    break;
 					case box:
 					    w.addEntity(new Box(new Vector2(i * 100, (counter - 1) * 100)));
 					    w.addTile(i, counter-1, World.background);
 					    break;
 					case Switch:
-					    //w.addTile(i, counter-1, World.background);
+					    w.addTile(i, counter-1, World.background);
 					    w.addSwitch(new Switch(i, (counter - 1), w), i, (counter - 1));
 					    break;
 					case Back: w.addTile(i, counter-1, World.background);break;

@@ -38,6 +38,7 @@ public class World implements Serializable {
 	    for (int y = 0; y < height; y++) {
 		Tile t = tiles[x][y];
 		if(t instanceof Switch) {
+		    win.drawImage(background.getTileType().getTexture().getImage(), null, x * 100, y * 100);
 		    t.drawIt(win);
 		} else if (t != null) {
 		    win.drawImage(t.getTileType().getTexture().getImage(), null, x * 100, y * 100);
