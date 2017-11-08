@@ -2,12 +2,12 @@ package edu.ucsb.cs56.projects.game.alva.commands;
 
 import edu.ucsb.cs56.projects.game.alva.Util.Vector2;
 import edu.ucsb.cs56.projects.game.alva.entity.Entity;
-
+/** class that controls the movement command, two instance variables, a reference variable to an Entity, and an int that holds the velocity of the moving */
 public class MoveCommand implements Command {
 	
 	Entity e;
 	int dx;
-	
+    /** constructor that sets the value of Entity and velocity(dx) based on the passed parameter */
 	public MoveCommand(Entity e, int dx) {
 		this.e = e;
 		this.dx = dx;

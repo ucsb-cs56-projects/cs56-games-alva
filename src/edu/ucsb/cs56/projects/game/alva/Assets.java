@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 import edu.ucsb.cs56.projects.game.alva.Graphics.Animation;
 import edu.ucsb.cs56.projects.game.alva.Graphics.Texture;
+/** A class that declares and creates references for all animations, textures, and images
+ */
 
 public class Assets {
     
@@ -20,6 +22,8 @@ public class Assets {
     public static Texture Switch1;
     public static Texture Switch2;
     
+    /** Declares all references to new objects of the same type. This creates all the assets we need.
+     */
     public static void loadAssets() {
     	Switch1 = new Texture(GameDriver.addImage("src/assets/Switch.png"));
     	Switch2 = new Texture(GameDriver.addImage("src/assets/Switch2.png"));

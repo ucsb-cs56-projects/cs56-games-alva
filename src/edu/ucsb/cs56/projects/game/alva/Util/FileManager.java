@@ -7,7 +7,7 @@ import java.io.FileReader;
 import edu.ucsb.cs56.projects.game.alva.world.World;
 import edu.ucsb.cs56.projects.game.alva.entity.Box;
 import edu.ucsb.cs56.projects.game.alva.world.Switch;
-
+/** class that creates the levels of the game through the use of the text file corresponding to every level */
 public class FileManager {
 	
 	private final int wallTile = 1;
@@ -15,7 +15,7 @@ public class FileManager {
 	private final int box = 3;
         private final int Switch = 4;
         private final int Back = 5;
-	
+    /** method that takes reads file that is passed as a parameter, and creates the level based on the file's level */
 	public World loadWorld(File f) {
 		World w = null;
 		try {
