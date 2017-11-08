@@ -38,7 +38,7 @@ public class Switch extends Tile {
 	
 	public void update() {
 		for(Point p:inactiveTiles) {
-			w.getTiles()[(int) p.getX()][(int) p.getY()] = null;
+			w.getTiles()[(int) p.getX()][(int) p.getY()] = World.background;
 		}
 		for(Point p:activeTiles) {
 			w.getTiles()[(int) p.getX()][(int) p.getY()] = World.steelX;
