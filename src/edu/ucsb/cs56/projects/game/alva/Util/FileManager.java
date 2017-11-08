@@ -54,10 +54,23 @@ public class FileManager {
 				for(int i = 0; i < tokens.length; i++) {
 					int type = Integer.parseInt(tokens[i]);
 					switch(type) {
-					case wallTile: w.addTile(i, counter - 1, World.steelX); break;
-					case floorTile: w.addTile(i, counter - 1, World.platform); break;
-					case box: w.addEntity(new Box(new Vector2(i * 100, (counter - 1) * 100))); break;
-					case Switch: w.addSwitch(new Switch(i, (counter - 1), w), i, (counter - 1));break;
+					case wallTile:
+					    //w.addTile(i, counter - 1, World.steelX);
+					    //w.addTile(i, counter-1, World.background);
+					    w.addTile(i, counter - 1, World.steelX);
+					    break;
+					case floorTile:
+					    w.addTile(i, counter - 1, World.platform);
+					    //w.addTile(i, counter-1, World.background);
+					    break;
+					case box:
+					    w.addEntity(new Box(new Vector2(i * 100, (counter - 1) * 100)));
+					    w.addTile(i, counter-1, World.background);
+					    break;
+					case Switch:
+					    //w.addTile(i, counter-1, World.background);
+					    w.addSwitch(new Switch(i, (counter - 1), w), i, (counter - 1));
+					    break;
 					case Back: w.addTile(i, counter-1, World.background);break;
 					}
 				}
