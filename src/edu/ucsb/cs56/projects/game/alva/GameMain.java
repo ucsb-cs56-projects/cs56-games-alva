@@ -11,7 +11,7 @@ public class GameMain {
 
 	/**
 	 * Main class, created JFrame
-	 * @param args
+	 * @param args command line arguments
 	 */
 	public static void main(String[] args) {
 		JFrame j1 = new JFrame();

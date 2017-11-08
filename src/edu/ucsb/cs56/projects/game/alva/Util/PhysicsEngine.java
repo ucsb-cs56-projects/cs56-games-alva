@@ -7,27 +7,27 @@ import edu.ucsb.cs56.projects.game.alva.world.World;
 import edu.ucsb.cs56.projects.game.alva.entity.Box;
 import edu.ucsb.cs56.projects.game.alva.entity.Entity;
 import edu.ucsb.cs56.projects.game.alva.entity.Entity.State;
-
+/** class that creates and manages the physics of the game */
 public class PhysicsEngine {
 
     public static final double gravity = 9;
     private World w;
-
+    /** method that sets the value of w variable to the passed parameter */
     public void loadWorld(World w) {
         this.w = w;
     }
-
+    /** constructor that sets the value of w variable to the passed parameter */
     public PhysicsEngine(World w) {
         this.w = w;
     }
-
+    /** method that updates the value of the y-velociy for all entities, while also checking for collisions */
     public void update(double dt) {
         for (Entity e : w.getEntities()) {
             yVelocity(e, dt);
         }
         handleCollision();
     }
-
+    /** method that sets the value of y-velocity while in the air */
     public void yVelocity(Entity e, double dt) {
         double dy = 0;
         if (e.getState() == edu.ucsb.cs56.projects.game.alva.entity.Entity.State.STATE_AIR) {
@@ -35,7 +35,7 @@ public class PhysicsEngine {
         } 
         e.getVelocity().setY(dy);
     }
-
+    /** method that handles collisions between all objects */ 
     public void handleCollision() {
         for (Entity e : w.getEntities()) {
             boolean isStanding = false;
