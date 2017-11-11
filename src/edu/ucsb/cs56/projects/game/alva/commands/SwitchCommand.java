@@ -7,7 +7,9 @@ public class SwitchCommand implements Command {
     
 	Switch s;
 	Robot r;
-    /** constructor that sets both Switch and Robot reference variables based on passed parameter */
+    /** constructor that sets both Switch and Robot reference variables based on passed parameter 
+     @param e Robot object which is now referenced to reference variable r for SwitchCommand object.
+    @param s Switch object shich is now referenced to reference varibale s for SwitchCommand object */
 	public SwitchCommand(Robot e, Switch s) {
 		this.r = e;
 		this.s = s;

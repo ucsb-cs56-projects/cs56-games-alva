@@ -15,7 +15,9 @@ public class FileManager {
 	private final int box = 3;
         private final int Switch = 4;
         private final int Back = 5;
-    /** method that takes reads file that is passed as a parameter, and creates the level based on the file's level */
+    /** method that takes reads file that is passed as a parameter, and creates the level based on the file's level 
+     @param f File object that is read to build the world. First and last lines of the file are specifications for the Window and Camera objects. All intermediate lines are specifications on world layout.
+    @return World object that is created based on the file passed as the parameter*/
 	public World loadWorld(File f) {
 		World w = null;
 		try {
