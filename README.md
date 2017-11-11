@@ -21,6 +21,10 @@ To start the game, put "ant run" into the command line (no quotations).
 
 ![Alt Text](https://github.com/a-saied/cs56-games-alva/blob/master/assets/1z7lhq.gif)
 
+## Hold f to move Boxes
+
+![Alt Text](https://github.com/a-saied/cs56-games-alva/blob/master/assets/1z7p2t.gif)
+
 ## How to Play
 Objective: Get Alva from one end of the level to the other 
 To play, simply use A and D to move left and right. W is to jump. SPACE is used to flip switches when nearby. Hold F to grab boxes and move them.
