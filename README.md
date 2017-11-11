@@ -17,11 +17,11 @@ This games objective is to create a fun and interesting platformer where you mov
 ## How to Run
 To start the game, put "ant run" into the command line (no quotations).
 
-### Use Space bar to use Switches
+### Hit Space bar to use Flip Switches
 
 ![Alt Text](https://github.com/a-saied/cs56-games-alva/blob/master/assets/1z7lhq.gif)
 
-### Hold F to move Boxes
+### Hold F to grab and move Boxes
 
 ![Alt Text](https://github.com/a-saied/cs56-games-alva/blob/master/assets/1z7p2t.gif)
 
