@@ -5,9 +5,11 @@ This games objective is to create a fun and interesting platformer where you mov
 ## Features to add:
 * Adding obstacles to test players reaction time and ability
 * Add an ultimate objective to the game, a way to win. Think the flag pole in Mario.
-* Create a background
+* Create a background.
 * Make new maps
-* Make the player flip around when they move
+* Add level editor GUI
+* Add animations for different things the robot can do (pushing boxes, flipping switches)
+* Ultimate objective: add to
 
 ## Things to refactor:
 * The physics engine. It currently is slow and doesn't work that well. Look into AABX collision or another method that is more efficient.
