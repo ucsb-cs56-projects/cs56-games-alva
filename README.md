@@ -9,7 +9,6 @@ This games objective is to create a fun and interesting platformer where you mov
 * Make new maps
 * Add level editor GUI
 * Add animations for different things the robot can do (pushing boxes, flipping switches)
-* Ultimate objective: add to
 
 ## Things to refactor:
 * The physics engine. It currently is slow and doesn't work that well. Look into AABX collision or another method that is more efficient.
@@ -22,4 +21,5 @@ To start the game, put "ant run" into the command line (no quotations).
 ![Alt Text](https://github.com/a-saied/cs56-games-alva/blob/master/assets/1z7lhq.gif)
 
 ## How to Play
+Objective: Get Alva from one end of the level to the other 
 To play, simply use A and D to move left and right. W is to jump. SPACE is used to flip switches when nearby. Hold F to grab boxes and move them.
