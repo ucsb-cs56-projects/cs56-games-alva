@@ -15,5 +15,8 @@ This games objective is to create a fun and interesting platformer where you mov
 ## How to Run
 To start the game, put "ant run" into the command line (no quotations).
 
+## Use Space bar to use Switches
+![Alt Text](1z7lhq.gif)
+
 ## How to Play
 To play, simply use A and D to move left and right. W is to jump. SPACE is used to flip switches when nearby. Hold F to grab boxes and move them.
