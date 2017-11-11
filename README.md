@@ -19,7 +19,7 @@ To start the game, put "ant run" into the command line (no quotations).
 
 ## Use Space bar to use Switches
 
-![Alt Text](https://media4.giphy.com/avatars/100soft/WahNEDdlGjRZ.gif)
+![Alt Text](https://github.com/a-saied/cs56-games-alva/blob/master/assets/1z7lhq.gif)
 
 ## How to Play
 To play, simply use A and D to move left and right. W is to jump. SPACE is used to flip switches when nearby. Hold F to grab boxes and move them.
