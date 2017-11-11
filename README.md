@@ -12,6 +12,7 @@ This games objective is to create a fun and interesting platformer where you mov
 
 ## Things to refactor:
 * The physics engine. It currently is slow and doesn't work that well. Look into AABX collision or another method that is more efficient.
+* Animation on non-Linux machines. This game uses Linux graphics and runs unbearably slow on Windows and Mac. Find a way to run animation on these machines at the same rate as on Linux. 
 
 ## How to Run
 To start the game, put "ant run" into the command line (no quotations).
