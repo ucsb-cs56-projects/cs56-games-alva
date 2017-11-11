@@ -5,7 +5,8 @@ import edu.ucsb.cs56.projects.game.alva.entity.Entity;
 public class JumpCommand implements Command {
 	
 	Entity e;
-    /** constructor that sets the entity object to the passed parameter */
+    /** constructor that sets the entity object to the passed parameter
+     @param e Entity object that is set to the value of the reference variable e for the object */
 	public JumpCommand(Entity e) {
 		this.e = e;
 	}

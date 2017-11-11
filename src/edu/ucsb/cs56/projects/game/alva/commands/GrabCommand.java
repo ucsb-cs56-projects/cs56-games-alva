@@ -9,7 +9,8 @@ public class GrabCommand implements Command {
     
     Box b;
     Robot r;
-    /** constructor that takes parameter and sets it to the box variable b. Also, Robot variable r is set to an instance of Robot */
+    /** constructor that takes parameter and sets it to the box variable b. Also, Robot variable r is set to an instance of Robot 
+     @param b Box object that the Box reference variable will be set to*/
     public GrabCommand(Box b) {
         this.b = b;
         r = Robot.getInstance();

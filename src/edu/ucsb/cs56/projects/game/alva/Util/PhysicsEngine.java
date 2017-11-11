@@ -12,22 +12,29 @@ public class PhysicsEngine {
 
     public static final double gravity = 9;
     private World w;
-    /** method that sets the value of w variable to the passed parameter */
+    /** method that sets the value of w variable to the passed parameter
+     @param w World object that the reference variable w is set to for PhysicsEngine object*/
     public void loadWorld(World w) {
         this.w = w;
     }
-    /** constructor that sets the value of w variable to the passed parameter */
+    /** constructor that sets the value of w variable to the passed parameter 
+     @param w World object that the reference variable w is set to for PhysicsEngine object
+    */
     public PhysicsEngine(World w) {
         this.w = w;
     }
-    /** method that updates the value of the y-velociy for all entities, while also checking for collisions */
+    /** method that updates the value of the y-velociy for all entities, while also checking for collisions 
+     @param dt double value which the will be set as the amount of time for yVelocity
+    */
     public void update(double dt) {
         for (Entity e : w.getEntities()) {
             yVelocity(e, dt);
         }
         handleCollision();
     }
-    /** method that sets the value of y-velocity while in the air */
+    /** method that sets the value of y-velocity while in the air 
+     @param e Entity object that we are trying to change the value of the y velocity of 
+    @param dt double that represents the value of the amount of time passed for the object*/
     public void yVelocity(Entity e, double dt) {
         double dy = 0;
         if (e.getState() == edu.ucsb.cs56.projects.game.alva.entity.Entity.State.STATE_AIR) {

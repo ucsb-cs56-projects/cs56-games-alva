@@ -7,7 +7,9 @@ public class MoveCommand implements Command {
 	
 	Entity e;
 	int dx;
-    /** constructor that sets the value of Entity and velocity(dx) based on the passed parameter */
+    /** constructor that sets the value of Entity and velocity(dx) based on the passed parameter 
+     @param e Entity object now referenced by the referene variable e for MoveCommand object
+    @param dx int value that represents the value of velocity in the x direction*/
 	public MoveCommand(Entity e, int dx) {
 		this.e = e;
 		this.dx = dx;
