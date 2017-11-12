@@ -6,7 +6,8 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-
+/**Creates JFrame object and creates instances of MainComp objects
+ */
 public class GameMain {
 
 	/**

@@ -52,7 +52,7 @@ public abstract class Entity extends Element {
 	}
 	
 	/**Gets the velocity of Entity object
-	 * return the velocity of Entity object
+	 * @return the velocity of Entity object
 	 */
 	public Vector2 getVelocity() {
 		return velocity;

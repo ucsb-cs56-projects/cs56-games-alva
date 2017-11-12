@@ -22,6 +22,7 @@ public class Robot extends Entity {
         isGrabbing = false;
     }
     /**Creates an instance of robot
+     * @return an instance of robot
      */
     public static Robot getInstance() {
         if(r == null) {
