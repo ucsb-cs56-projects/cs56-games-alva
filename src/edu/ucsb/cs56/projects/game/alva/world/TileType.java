@@ -3,7 +3,8 @@ package edu.ucsb.cs56.projects.game.alva.world;
 import edu.ucsb.cs56.projects.game.alva.Graphics.Texture;
 
 import edu.ucsb.cs56.projects.game.alva.Assets;
-
+/**Creates specialized tile types that return primitive values that have a boolean value to represent if they are passable
+ */
 public enum TileType {
     STEELX(Assets.redTile, false),
     XPLATFORM(Assets.platformTile, false),
