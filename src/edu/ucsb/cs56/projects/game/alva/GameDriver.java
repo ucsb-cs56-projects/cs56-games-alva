@@ -20,7 +20,11 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
+/** abstract class that does something
+ *
+ *
+ *
+ */
 
 public abstract class GameDriver extends Canvas implements KeyListener, Runnable, MouseListener
 {
@@ -28,7 +32,9 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 	protected boolean[] keys;
 	protected BufferedImage back;
 	protected int timer = 6;
-
+	
+	/**GameDriver constructor and its in charge setting up the game and getting it account for lots of stuff
+	 */
 	public GameDriver()
 	{
 		//set up all variables related to the game
@@ -49,7 +55,9 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
    public void update(Graphics window){
 	   paint(window);
    }
-
+	/**allows the user to set a time
+	 * @param value int argument that is passed in
+	 */
    public void setTimer(int value) {
    		timer = value;
    }
@@ -163,6 +171,10 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
       {
       }
   	}
+   /**Temporary storage to hold images 
+    * @param name string type object 
+    * @return returns a BufferedImage type of object
+    */
 
   	public static BufferedImage addImage(String name) {
 

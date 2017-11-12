@@ -11,7 +11,8 @@ public class Animation {
     static int position;
     static int timer;
     static int delay;
-    
+/**
+ */    
     public Animation(int delay) {
         textureList = new ArrayList<Texture>();
         position = 0;
