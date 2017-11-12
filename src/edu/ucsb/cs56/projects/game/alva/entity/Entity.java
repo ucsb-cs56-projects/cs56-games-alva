@@ -8,7 +8,8 @@ import edu.ucsb.cs56.projects.game.alva.Util.Vector2;
 /**Class that cannot be instantiated and inherits from Element class; sets the values for the jump and move of the Entity object
  */
 public abstract class Entity extends Element {
-	
+	/**Declares 'four' state variables of primitive type
+	 */
 	public enum State {
 		STATE_AIR,
 		STATE_GROUND,
