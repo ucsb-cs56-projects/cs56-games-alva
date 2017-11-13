@@ -1,5 +1,5 @@
 package edu.ucsb.cs56.projects.game.alva.commands;
-
+/** Interface that declares the execute() method, for all implementing classes to define */
 public interface Command {
 	
     /**
