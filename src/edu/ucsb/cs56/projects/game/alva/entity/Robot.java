@@ -47,6 +47,7 @@ public class Robot extends Entity {
 	else{
 	    Assets.robotAnim.animate(this, win);
 	}
+
     }
 /**Gets the value of isGrabbing
  * @return the boolean value isGrabbing is currently set to

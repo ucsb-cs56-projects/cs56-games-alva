@@ -9,6 +9,8 @@ import edu.ucsb.cs56.projects.game.alva.Graphics.Texture;
 
 public class Assets {
     
+    public static Texture robot_jright;
+    public static Texture robot_jleft;
     public static Texture redTile;
     public static Texture platformTile;
     public static Texture BackgroundTile;
@@ -25,7 +27,9 @@ public class Assets {
     /** Declares all references to new objects of the same type. This creates all the assets we need.
      */
     public static void loadAssets() {
-    	Switch1 = new Texture(GameDriver.addImage("src/assets/Switch.png"));
+    	robot_jright = new Texture(GameDriver.addImage("assets/Robot/Right/Jumping/robotjumpingframe1.png"));
+	robot_jleft = new Texture(GameDriver.addImage("assets/Robot/Left/Jumping/robotjumping1.png"));
+	Switch1 = new Texture(GameDriver.addImage("src/assets/Switch.png"));
     	Switch2 = new Texture(GameDriver.addImage("src/assets/Switch2.png"));
         redTile = new Texture(GameDriver.addImage("assets/Tiles/Steel_X.png"));
         platformTile = new Texture(GameDriver.addImage("assets/Tiles/Steel_X_Platform.png"));
