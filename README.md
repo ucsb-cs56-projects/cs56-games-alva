@@ -2,6 +2,11 @@
 
 This games objective is to create a fun and interesting platformer where you move boxes, flip switches, and avoid obstacles.
 
+
+* [javadoc](http://a-saied.github.io/cs56-games-alva/javadoc/index.html)
+
+* [javadoc](http://ucsb-cs56-projects.github.io/cs56-games-alva/javadoc/index.html)
+
 ## Features to add:
 * Adding obstacles to test players reaction time and ability
 * Add an ultimate objective to the game, a way to win. Think the flag pole in Mario.
