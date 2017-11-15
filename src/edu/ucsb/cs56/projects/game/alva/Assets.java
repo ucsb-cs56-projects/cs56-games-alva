@@ -9,8 +9,8 @@ import edu.ucsb.cs56.projects.game.alva.Graphics.Texture;
 
 public class Assets {
     
-    public static Texture robot_jright;
-    public static Texture robot_jleft;
+    public static Animation robot_jright;
+    public static Animation robot_jleft;
     public static Texture redTile;
     public static Texture platformTile;
     public static Texture BackgroundTile;

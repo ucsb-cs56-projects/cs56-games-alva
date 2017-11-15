@@ -47,9 +47,11 @@ public class InputHandler {
 		if (keys[0]) {
 			if (r.getState() == State.STATE_GROUND && !holdingJump) {
 				jump.execute();
+				r.holdingJump = true;
 				holdingJump = true;
 			}
 		} else {
+		    r.holdingJump = false;
 			holdingJump = false;
 		}
 

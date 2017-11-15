@@ -13,6 +13,7 @@ import edu.ucsb.cs56.projects.game.alva.Assets;
 public class Robot extends Entity {
 	
     private static Robot r;
+    public boolean holdingJump;
     private boolean isGrabbing;
     public boolean isleft;
  /**Calls on Parent Class Entity constructor to create an instance of rectangle object, sets the objects's initial position, velocity, width, and height, and sets initial boolean value for 'isGrabbing'
@@ -42,12 +43,13 @@ public class Robot extends Entity {
     @Override
     public void drawIt(Graphics2D win) {
 	if(isleft){
+	    if(holdingJump){
+		Assets.
 	    Assets.robotAnim_left.animate(this, win);
 	}
 	else{
 	    Assets.robotAnim.animate(this, win);
 	}
-
     }
 /**Gets the value of isGrabbing
  * @return the boolean value isGrabbing is currently set to
