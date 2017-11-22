@@ -44,17 +44,25 @@ public class Robot extends Entity {
     public void drawIt(Graphics2D win) {
 	if(isleft){
 	    if(holdingJump){
-		Assets.
+		Assets.jleft.animate(this,win);
+	    }
+	    else{
 	    Assets.robotAnim_left.animate(this, win);
+	    }
 	}
 	else{
+	    if(holdingJump){
+		Assets.jright.animate(this,win);
+	    }
+	    else{
 	    Assets.robotAnim.animate(this, win);
+	    }
 	}
     }
 /**Gets the value of isGrabbing
  * @return the boolean value isGrabbing is currently set to
  */
-    public boolean isGrabbing() {
+       public boolean isGrabbing() {
         return isGrabbing;
     }
     
