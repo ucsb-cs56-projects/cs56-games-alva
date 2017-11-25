@@ -6,12 +6,13 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-
+/**Creates JFrame object and creates instances of MainComp objects
+ */
 public class GameMain {
 
 	/**
 	 * Main class, created JFrame
-	 * @param args
+	 * @param args command line arguments
 	 */
 	public static void main(String[] args) {
 		JFrame j1 = new JFrame();

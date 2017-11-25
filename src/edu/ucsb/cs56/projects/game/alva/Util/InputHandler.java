@@ -11,7 +11,7 @@ import edu.ucsb.cs56.projects.game.alva.entity.Box;
 import edu.ucsb.cs56.projects.game.alva.entity.Entity;
 import edu.ucsb.cs56.projects.game.alva.entity.Entity.State;
 import edu.ucsb.cs56.projects.game.alva.entity.Robot;
-
+/** class that explains how to manage the different inputs */
 public class InputHandler {
 
 	boolean holdingJump;
@@ -21,7 +21,9 @@ public class InputHandler {
 	boolean spacePressed;
 	int timer;
 	int delay;
-
+    /** constructor that sets the value of all variables, and sets value of Robot and World object to the appropriate passed parameter 
+     @param e Robot object that the reference variable r is set to for InputHandler object
+    @param w World object that the reference variable w is set to for InputHandler object */
 	public InputHandler(Robot e, World w) {
 		holdingJump = false;
 		moveLeft = new MoveCommand(e, -2);
@@ -45,15 +47,19 @@ public class InputHandler {
 		if (keys[0]) {
 			if (r.getState() == State.STATE_GROUND && !holdingJump) {
 				jump.execute();
+				r.holdingJump = true;
 				holdingJump = true;
 			}
 		} else {
+		    r.holdingJump = false;
 			holdingJump = false;
 		}
 
 		if (keys[2]) {
+		    r.isleft = true;
 			moveLeft.execute();
 		} else if (keys[3]) {
+		    r.isleft = false;
 			moveRight.execute();
 		} else {
 			standStill.execute();

@@ -7,14 +7,17 @@ import java.io.FileReader;
 import edu.ucsb.cs56.projects.game.alva.world.World;
 import edu.ucsb.cs56.projects.game.alva.entity.Box;
 import edu.ucsb.cs56.projects.game.alva.world.Switch;
-
+/** class that creates the levels of the game through the use of the text file corresponding to every level */
 public class FileManager {
 	
 	private final int wallTile = 1;
 	private final int floorTile = 2;
 	private final int box = 3;
-	private final int Switch = 4;
-	
+        private final int Switch = 4;
+        private final int Back = 5;
+    /** method that takes reads file that is passed as a parameter, and creates the level based on the file's level 
+     @param f File object that is read to build the world. First and last lines of the file are specifications for the Window and Camera objects. All intermediate lines are specifications on world layout.
+    @return World object that is created based on the file passed as the parameter*/
 	public World loadWorld(File f) {
 		World w = null;
 		try {
@@ -53,10 +56,24 @@ public class FileManager {
 				for(int i = 0; i < tokens.length; i++) {
 					int type = Integer.parseInt(tokens[i]);
 					switch(type) {
-					case wallTile: w.addTile(i, counter - 1, World.steelX); break;
-					case floorTile: w.addTile(i, counter - 1, World.platform); break;
-					case box: w.addEntity(new Box(new Vector2(i * 100, (counter - 1) * 100))); break;
-					case Switch: w.addSwitch(new Switch(i, (counter - 1), w), i, (counter - 1));
+					case wallTile:
+					    //w.addTile(i, counter - 1, World.steelX);
+					    //w.addTile(i, counter-1, World.background);
+					    w.addTile(i, counter - 1, World.steelX);
+					    break;
+					case floorTile:
+					    w.addTile(i, counter-1, World.background);
+					    w.addTile(i, counter - 1, World.platform);
+					    break;
+					case box:
+					    w.addEntity(new Box(new Vector2(i * 100, (counter - 1) * 100)));
+					    w.addTile(i, counter-1, World.background);
+					    break;
+					case Switch:
+					    w.addTile(i, counter-1, World.background);
+					    w.addSwitch(new Switch(i, (counter - 1), w), i, (counter - 1));
+					    break;
+					case Back: w.addTile(i, counter-1, World.background);break;
 					}
 				}
 				

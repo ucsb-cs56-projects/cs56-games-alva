@@ -20,7 +20,8 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
+/** non instatiatable class sets up all variables related to the game, has key thread to registered key strokes and released key strokes, sets windows, returns BufferedImages from files
+ */
 
 public abstract class GameDriver extends Canvas implements KeyListener, Runnable, MouseListener
 {
@@ -28,7 +29,9 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 	protected boolean[] keys;
 	protected BufferedImage back;
 	protected int timer = 6;
-
+	
+	/**Set up all variables related to the game, starts the key thread to log key strokes, sets the background color to black 
+	 */
 	public GameDriver()
 	{
 		//set up all variables related to the game
@@ -37,7 +40,7 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		keys = new boolean[16];
 
 
-    	setBackground(Color.WHITE);
+    	setBackground(Color.BLACK);
 		setVisible(true);
 
 		new Thread(this).start();
@@ -45,15 +48,20 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		setFocusable(true);
 		addMouseListener(this);
 	}
-
+/**By default paints background
+ */
    public void update(Graphics window){
 	   paint(window);
    }
-
+	/**Makes value an instance variable of class GameDriver 
+	 * @param value passes a value of type int that made into an instance variable of class GameDriver
+	 */
    public void setTimer(int value) {
    		timer = value;
    }
-   
+   /**Creates a default window
+    * @param window Graphics object that represents a window object for drawing to a GUI
+    */
    public void paint(Graphics window)
    {
 		if(back==null)
@@ -66,9 +74,13 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		win2D.drawImage(back, null, 0, 0);
 
 	}
-
+	/**non instantiatable class that draws the elemements in the window
+	 * @param win Graphics2D object that represents a window object for drawing to GUI
+	 */
 	public abstract void draw(Graphics2D win);
-
+/**Ties event with keycode 
+ * @param e pass an object of type KeyEvent that is tied with a keycode for registering key strokes
+ */
 	public void keyPressed(KeyEvent e)
 	{
 		switch(e.getKeyCode())
@@ -93,29 +105,40 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		}
 
 	}
-	
+	/**Not implemented yet
+	 * @param arg0 passes an object of type MouseEvent 
+	 */
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		
 	}
-
+	/**Not implemented yet
+	 * @param arg0 passes an object of type MouseEvent
+	 */
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	/**Not implemented yet
+	 * @param arg0 passes an object of type MouseEvent
+	 */
 	@Override
 	public void mouseExited(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
+	/**Not implemented yet
+	 * @param arg0 passes an object of type MouseEvent
+	 */
+	@Override 
 	public void mousePressed(MouseEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
+	 /**Not implemented yet
+         * @param arg0 passes an object of type MouseEvent
+         */
 
 	@Override
 	public void mouseReleased(MouseEvent arg0) {
@@ -123,7 +146,9 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		
 	}
 	
-
+	/**Tie event with keycode
+	 * @param e passes an object of type KeyEvent that is tied with a keycode when key is released
+	 */
 	public void keyReleased(KeyEvent e)
 	{
 		switch(e.getKeyCode())
@@ -147,9 +172,12 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 			case KeyEvent.VK_RIGHT : keys[15]=false;break;
 		}
 	}
-
+/**Not implemented yet
+ * @param e passes object of type KeyEvent
+ */
 	public void keyTyped(KeyEvent e){}
-
+/**Try Catch block that moves thread into blocked state for timer duration and repaints within that same duration
+ */
    public void run()
    {
    	try
@@ -163,6 +191,10 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
       {
       }
   	}
+   /**Try Catch block to return the BufferedImage containing decode contents of input or NULL otherwise throw IOException
+    * @param name passes object of type string that is file name Buffered Image is placed in 
+    * @return returns the BufferedImage containing decoded contents of input or NULL else throw IOException
+    */
 
   	public static BufferedImage addImage(String name) {
 
