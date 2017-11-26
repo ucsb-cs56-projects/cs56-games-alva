@@ -28,6 +28,7 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 
 	protected boolean[] keys;
 	protected BufferedImage back;
+        protected BufferedImage home;
 	protected int timer = 6;
 	
 	/**Set up all variables related to the game, starts the key thread to log key strokes, sets the background color to black 
