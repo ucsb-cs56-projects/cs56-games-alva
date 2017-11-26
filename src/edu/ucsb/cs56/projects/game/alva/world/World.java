@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import edu.ucsb.cs56.projects.game.alva.Util.Vector2;
 import edu.ucsb.cs56.projects.game.alva.entity.Entity;
 import edu.ucsb.cs56.projects.game.alva.entity.Robot;
+import edu.ucsb.cs56.projects.game.alva.Assets;
 /**Creates a multidimensional array that Tile objects are positioned in  
  */
 public class World implements Serializable {
@@ -20,6 +21,7 @@ public class World implements Serializable {
     Vector2 spawnPoint;
     ArrayList<Switch> switches;
     int timer;
+    Assets a;
     
     public static final Tile steelX = new Tile(0, 0, TileType.STEELX);
     public static final Tile platform = new Tile(0, 0, TileType.XPLATFORM);
@@ -33,6 +35,7 @@ public class World implements Serializable {
     public World(int width, int height, Vector2 spawnPoint, Vector2 endPoint) {
 	this.width = width;
 	this.height = height;
+	a.loadAssets();
 	Robot.getInstance().setPosition(spawnPoint);
 	entities = new ArrayList<Entity>();
 	tiles = new Tile[width][height];
@@ -57,6 +60,7 @@ public class World implements Serializable {
 	for (Entity e : entities) {
 	    e.update(win);
 	}
+
     }
 /**Gets ArrayList of type Entity referred to as entities
  * @return the ArrayList of type Entity 'entities'

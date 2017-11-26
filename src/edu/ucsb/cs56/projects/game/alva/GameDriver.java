@@ -30,7 +30,8 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 	protected BufferedImage back;
         protected BufferedImage home;
 	protected int timer = 6;
-	
+    protected static boolean menu;
+    
 	/**Set up all variables related to the game, starts the key thread to log key strokes, sets the background color to black 
 	 */
 	public GameDriver()
@@ -39,11 +40,11 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 
 		// number of key possibilities
 		keys = new boolean[16];
-
+		menu = true;
 
     	setBackground(Color.BLACK);
 		setVisible(true);
-
+	   
 		new Thread(this).start();
 		addKeyListener(this);		//starts the key thread to log key strokes
 		setFocusable(true);
@@ -65,6 +66,7 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
     */
    public void paint(Graphics window)
    {
+       if(menu == false){
 		if(back==null)
 		   back = (BufferedImage)(createImage(getWidth(),getHeight()));
 		Graphics2D graphToBack = (Graphics2D) back.createGraphics();
@@ -74,7 +76,13 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		Graphics2D win2D = (Graphics2D) window;
 		win2D.drawImage(back, null, 0, 0);
 
-	}
+       }
+       else{
+	   Graphics2D g2d = (Graphics2D) window;
+	   g2d.drawImage(Assets.LoadScreen, null, 0,0);
+       }
+	   
+   }
 	/**non instantiatable class that draws the elemements in the window
 	 * @param win Graphics2D object that represents a window object for drawing to GUI
 	 */
@@ -97,7 +105,7 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 			case KeyEvent.VK_4 : keys[7]=true; break;
 			case KeyEvent.VK_6 : keys[8]=true; break;
 			case KeyEvent.VK_PLUS : keys[9]=true; break;
-			case KeyEvent.VK_ENTER : keys[10]=true;break;
+		case KeyEvent.VK_ENTER : keys[10]=true; menu = false; break;
 			case KeyEvent.VK_SPACE : keys[11]=true;break;
 			case KeyEvent.VK_UP : keys[12]=true;break;
 			case KeyEvent.VK_DOWN : keys[13]=true;break;
