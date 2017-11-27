@@ -38,7 +38,7 @@ public class MainComp extends GameDriver {
 	r = Robot.getInstance();
 	levelState = 1;
 	fManager = new FileManager();
-	File f = new File("src/assets/World1.txt");
+	File f = new File("src/assets/World5.txt");
 	w = fManager.loadWorld(f);
 	w.addEntity(r);
 	input = new InputHandler(r, w);
