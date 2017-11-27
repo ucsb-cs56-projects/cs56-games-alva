@@ -30,8 +30,8 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 	protected BufferedImage back;
         protected BufferedImage home;
 	protected int timer = 6;
-    protected static boolean menu;
-    
+    protected static int menu;
+    protected static int i;
 	/**Set up all variables related to the game, starts the key thread to log key strokes, sets the background color to black 
 	 */
 	public GameDriver()
@@ -40,8 +40,8 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 
 		// number of key possibilities
 		keys = new boolean[16];
-		menu = true;
-
+		menu = 1;
+		i = 1;
     	setBackground(Color.BLACK);
 		setVisible(true);
 	   
@@ -66,7 +66,7 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
     */
    public void paint(Graphics window)
    {
-       if(menu == false){
+       // if(menu == 3){
 		if(back==null)
 		   back = (BufferedImage)(createImage(getWidth(),getHeight()));
 		Graphics2D graphToBack = (Graphics2D) back.createGraphics();
@@ -76,11 +76,15 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		Graphics2D win2D = (Graphics2D) window;
 		win2D.drawImage(back, null, 0, 0);
 
-       }
-       else{
+		/* }
+       else if(menu == 1){
 	   Graphics2D g2d = (Graphics2D) window;
 	   g2d.drawImage(Assets.LoadScreen, null, 0,0);
-       }
+	    }
+       else if(menu == 2){
+	   Graphics2D g2d = (Graphics2D) window;
+	   setBackground(Color.red);
+	   }*/
 	   
    }
 	/**non instantiatable class that draws the elemements in the window
@@ -101,16 +105,21 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 			case KeyEvent.VK_F : keys[4]=true; break;
 
 			case KeyEvent.VK_8 : keys[5]=true; break;
-			case KeyEvent.VK_5 : keys[6]=true; break;
-			case KeyEvent.VK_4 : keys[7]=true; break;
+			    //case KeyEvent.VK_5 : keys[6]=true; break;
+			    //case KeyEvent.VK_4 : keys[7]=true; break;
 			case KeyEvent.VK_6 : keys[8]=true; break;
 			case KeyEvent.VK_PLUS : keys[9]=true; break;
-		case KeyEvent.VK_ENTER : keys[10]=true; menu = false; break;
+		case KeyEvent.VK_ENTER : keys[10]=true; menu = 2; break;
 			case KeyEvent.VK_SPACE : keys[11]=true;break;
 			case KeyEvent.VK_UP : keys[12]=true;break;
 			case KeyEvent.VK_DOWN : keys[13]=true;break;
 			case KeyEvent.VK_LEFT : keys[14]=true;break;
 			case KeyEvent.VK_RIGHT : keys[15]=true;break;
+		case KeyEvent.VK_1 : i = 0; menu = 3;  break;
+		case KeyEvent.VK_2 : i = 1; menu = 3;  break;
+		case KeyEvent.VK_3 : i = 2; menu = 3;  break;
+		case KeyEvent.VK_4 : i = 3; menu = 3;  break;
+		case KeyEvent.VK_5 : i = 4; menu = 3;  break;
 		}
 
 	}
