@@ -1,5 +1,6 @@
 package edu.ucsb.cs56.projects.game.alva.Util;
 
+import edu.ucsb.cs56.projects.game.alva.GameDriver;
 import edu.ucsb.cs56.projects.game.alva.world.Switch;
 import edu.ucsb.cs56.projects.game.alva.world.World;
 import edu.ucsb.cs56.projects.game.alva.commands.Command;
@@ -13,7 +14,7 @@ import edu.ucsb.cs56.projects.game.alva.entity.Entity.State;
 import edu.ucsb.cs56.projects.game.alva.entity.Robot;
 /** class that explains how to manage the different inputs */
 public class InputHandler {
-
+    GameDriver gd;
 	boolean holdingJump;
 	Command moveLeft, moveRight, jump, standStill;
 	Robot r;
@@ -24,7 +25,8 @@ public class InputHandler {
     /** constructor that sets the value of all variables, and sets value of Robot and World object to the appropriate passed parameter 
      @param e Robot object that the reference variable r is set to for InputHandler object
     @param w World object that the reference variable w is set to for InputHandler object */
-	public InputHandler(Robot e, World w) {
+    public InputHandler(Robot e, World w, GameDriver g) {
+	gd = g; 
 		holdingJump = false;
 		moveLeft = new MoveCommand(e, -2);
 		moveRight = new MoveCommand(e, 2);
@@ -93,6 +95,21 @@ public class InputHandler {
 					timer = 0;
 				}
 			}
+		}
+		if(keys[5]) {
+		    gd.i = 0; gd.menu = 3;
+		}
+		if(keys[12]) {
+		    gd.i = 1; gd.menu = 3;
+		}
+		if(keys[13]){
+		    gd.i = 2; gd.menu = 3;
+		}
+		if(keys[14]){
+		    gd.i = 3; gd.menu = 3;
+		}
+		if(keys[15]){
+		    gd.i = 4; gd.menu = 3;
 		}
 		timer++;
 	}

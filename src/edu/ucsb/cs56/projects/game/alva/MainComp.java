@@ -40,12 +40,12 @@ public class MainComp extends GameDriver {
 	r = Robot.getInstance();
 	levelState = 1;
 	fManager = new FileManager();
-	//createMenu();
-	File f = new File("src/assets/World1.txt");
-	w = fManager.loadWorld(f);
-	w.addEntity(r);
-	input = new InputHandler(r, w);
-	pe = new PhysicsEngine(w);
+	this.createWorld();
+	//File f = new File(levelfiles[i]);
+	//w = fManager.loadWorld(f);
+	//w.addEntity(r);
+	//input = new InputHandler(r, w, this);
+	//pe = new PhysicsEngine(w);
 	clear = new Rectangle(-500, -500, w.getWidth() * 100 + 1000, w.getHeight() * 100 + 1000);
     }
 /**Overrides the draw function to update window object after each registered input 
@@ -60,11 +60,13 @@ public class MainComp extends GameDriver {
     }
 /**Not implemented yet
  */
-    public void createMenu() {
-	if(menu == 3){
-	    File f = new File(levelfiles[i]);
-	    w = fManager.loadWorld(f);
-	}
+    public void createWorld() {
+	w = null;
+	File f = new File(levelfiles[i]);
+        w = fManager.loadWorld(f);
+	w.addEntity(r);
+	input = new InputHandler(r, w, this);
+	pe = new PhysicsEngine(w);
     }
 /**Not implemented yet
  */
