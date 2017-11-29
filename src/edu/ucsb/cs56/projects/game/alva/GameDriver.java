@@ -161,7 +161,7 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 	public void mouseClicked(MouseEvent e) {
 	    int mx = e.getX();
 	    int my = e.getY();
-
+	if(menu == 2){
 	    if(mx > 140 && mx < 340){
 		if(my >= 200 && my <= 300){
 		    i = 0; menu = 3; createWorld();
@@ -186,6 +186,7 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		    System.exit(1);
 		}
 	    }	
+	}
 	}
 	/**Not implemented yet
 	 * @param arg0 passes an object of type MouseEvent
