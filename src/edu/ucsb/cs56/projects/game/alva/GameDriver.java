@@ -1,6 +1,6 @@
 package edu.ucsb.cs56.projects.game.alva;
 
-
+import java.awt.Font;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -28,8 +28,10 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 
 	protected boolean[] keys;
 	protected BufferedImage back;
+        protected BufferedImage home;
 	protected int timer = 6;
-	
+    public static int menu;
+    public static int i;
 	/**Set up all variables related to the game, starts the key thread to log key strokes, sets the background color to black 
 	 */
 	public GameDriver()
@@ -38,11 +40,11 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 
 		// number of key possibilities
 		keys = new boolean[16];
-
-
+		menu = 1;
+		i = 4;
     	setBackground(Color.BLACK);
 		setVisible(true);
-
+	   
 		new Thread(this).start();
 		addKeyListener(this);		//starts the key thread to log key strokes
 		setFocusable(true);
@@ -64,7 +66,8 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
     */
    public void paint(Graphics window)
    {
-		if(back==null)
+       if(menu == 3){
+	   if(back==null)
 		   back = (BufferedImage)(createImage(getWidth(),getHeight()));
 		Graphics2D graphToBack = (Graphics2D) back.createGraphics();
 
@@ -73,11 +76,52 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		Graphics2D win2D = (Graphics2D) window;
 		win2D.drawImage(back, null, 0, 0);
 
-	}
+       }
+       else if(menu == 1){
+	   Graphics2D g2d = (Graphics2D) window;
+	   g2d.drawImage(Assets.LoadScreen, null, 0,0);
+	    }
+       else if(menu == 2){
+	   Graphics2D g2d = (Graphics2D) window;
+	   setBackground(Color.black);
+	   Font f1 = new Font("arial", Font.BOLD, 50);
+	   g2d.setFont(f1);
+	   g2d.fill3DRect(0,0,1280,720,false);
+	   g2d.setColor(Color.red);
+	   g2d.drawString("Select a Stage:", 1280/2 - 250, 100);
+
+	   //drawing boxes for level selection
+	   g2d.drawRect(140, 200, 200, 100);
+	   g2d.drawRect(140, 400, 200, 100);
+	   g2d.drawRect(540, 200, 200, 100);
+	   g2d.drawRect(540, 400, 200, 100);
+	   g2d.drawRect(940, 200, 200, 100);
+	   g2d.drawRect(940, 400, 200, 100);
+
+	   //drawing Strings within boxes
+	   Font f2 = new Font("arial", Font.BOLD, 47);
+	   g2d.setFont(f2);
+	   g2d.drawString("Stage 1", 140, 270);
+	   g2d.drawString("Stage 4", 140, 470);
+	   g2d.drawString("Stage 2", 540, 270);
+	   g2d.drawString("Stage 5", 540, 470);
+	   g2d.drawString("Stage 3", 940, 270);
+
+	   g2d.setFont(f1);
+	   g2d.drawString("  Quit", 940, 470);
+       }
+	   
+         
+   }
+
+    //public void paintComponent(Graphics g){
+	
 	/**non instantiatable class that draws the elemements in the window
 	 * @param win Graphics2D object that represents a window object for drawing to GUI
 	 */
 	public abstract void draw(Graphics2D win);
+    public abstract void createWorld();
+	
 /**Ties event with keycode 
  * @param e pass an object of type KeyEvent that is tied with a keycode for registering key strokes
  */
@@ -92,25 +136,57 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 			case KeyEvent.VK_F : keys[4]=true; break;
 
 			case KeyEvent.VK_8 : keys[5]=true; break;
-			case KeyEvent.VK_5 : keys[6]=true; break;
-			case KeyEvent.VK_4 : keys[7]=true; break;
+			    //case KeyEvent.VK_5 : keys[6]=true; break;
+			    //case KeyEvent.VK_4 : keys[7]=true; break;
 			case KeyEvent.VK_6 : keys[8]=true; break;
 			case KeyEvent.VK_PLUS : keys[9]=true; break;
-			case KeyEvent.VK_ENTER : keys[10]=true;break;
+		case KeyEvent.VK_ENTER : keys[10]=true; menu = 2; break;
 			case KeyEvent.VK_SPACE : keys[11]=true;break;
 			case KeyEvent.VK_UP : keys[12]=true;break;
 			case KeyEvent.VK_DOWN : keys[13]=true;break;
 			case KeyEvent.VK_LEFT : keys[14]=true;break;
 			case KeyEvent.VK_RIGHT : keys[15]=true;break;
-		}
+			    /*case KeyEvent.VK_1 : i = 0; menu = 3; createWorld(); break;
+		case KeyEvent.VK_2 : i = 1; menu = 3; createWorld(); break;
+		case KeyEvent.VK_3 : i = 2; menu = 3; createWorld(); break;
+		case KeyEvent.VK_4 : i = 3; menu = 3; createWorld(); break;
+		case KeyEvent.VK_5 : i = 4; menu = 3; createWorld(); break;
+			    */}
 
 	}
 	/**Not implemented yet
 	 * @param arg0 passes an object of type MouseEvent 
 	 */
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		
+	public void mouseClicked(MouseEvent e) {
+	    int mx = e.getX();
+	    int my = e.getY();
+	if(menu == 2){
+	    if(mx > 140 && mx < 340){
+		if(my >= 200 && my <= 300){
+		    i = 0; menu = 3; createWorld();
+		}
+		else if(my >= 400 && my <= 500){
+		    i = 3; menu = 3; createWorld();
+		}
+	    }
+	    else if (mx >= 540 && mx <= 740){
+	       	if(my >= 200 && my <= 300){
+		    i = 1; menu = 3; createWorld();
+		}
+		else if(my >= 400 && my <= 500){
+		    i = 4; menu = 3; createWorld();
+		}
+	    }
+	    else if(mx >= 940 && mx <= 1140){
+		if(my >= 200 && my <= 300){
+		    i = 2; menu = 3; createWorld();
+		}
+		else if(my >= 400 && my <= 500){
+		    System.exit(1);
+		}
+	    }	
+	}
 	}
 	/**Not implemented yet
 	 * @param arg0 passes an object of type MouseEvent

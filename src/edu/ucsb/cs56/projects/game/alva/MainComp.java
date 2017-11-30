@@ -20,6 +20,7 @@ public class MainComp extends GameDriver {
      */
     private Rectangle clear;
     private InputHandler input;
+    private String[] levelfiles;
     double start;
     double accumulator = 0;
     double dt = 0.006;
@@ -32,17 +33,19 @@ public class MainComp extends GameDriver {
 /**Instatiates all Assets and animations, sets the measurement for time, instantiates a Camera object that starts at the origin, creates an instance of robot object, sets the level, creates a FileManager object, creates a File object of 'src/assests/World1.txt', instantiates World object and addes Entity objects to it,instantiates InputHandler objects and a PhysicsEngine object, creates a rectangle object; sets the playing board and gets everything ready and instantiated.
  */
     public MainComp() {
+	levelfiles = new String[]{"src/assets/World1.txt","src/assets/World2.txt","src/assets/World3.txt","src/assets/World4.txt","src/assets/World5.txt"};;
         Assets.loadAssets();
 	start = System.currentTimeMillis();
 	c = new Camera(0, 0);
 	r = Robot.getInstance();
 	levelState = 1;
 	fManager = new FileManager();
-	File f = new File("src/assets/World1.txt");
-	w = fManager.loadWorld(f);
-	w.addEntity(r);
-	input = new InputHandler(r, w);
-	pe = new PhysicsEngine(w);
+	this.createWorld();
+	//File f = new File(levelfiles[i]);
+	//w = fManager.loadWorld(f);
+	//w.addEntity(r);
+	//input = new InputHandler(r, w, this);
+	//pe = new PhysicsEngine(w);
 	clear = new Rectangle(-500, -500, w.getWidth() * 100 + 1000, w.getHeight() * 100 + 1000);
     }
 /**Overrides the draw function to update window object after each registered input 
@@ -57,8 +60,13 @@ public class MainComp extends GameDriver {
     }
 /**Not implemented yet
  */
-    public void createMenu() {
-
+    public void createWorld() {
+	w = null;
+	File f = new File(levelfiles[i]);
+        w = fManager.loadWorld(f);
+	w.addEntity(r);
+	input = new InputHandler(r, w, this);
+	pe = new PhysicsEngine(w);
     }
 /**Not implemented yet
  */
