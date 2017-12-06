@@ -33,3 +33,9 @@ To start the game, put "ant run" into the command line (no quotations).
 ## How to Play
 Objective: Get Alva from one end of the level to the other 
 To play, simply use A and D to move left and right. W is to jump. SPACE is used to flip switches when nearby. Hold F to grab boxes and move them.
+
+## F17 Final Remarks
+* The code is very well factored out already. Try to stay with this standard when fixing any of the issues. Instead of adding to an existing class, try adding your own classes to handle new issues. 
+* Make sure that you follow conventions already determined. Animations should be loaded in Animation.java, edits to building the world should be handled in World.java, etc. 
+* Read all of the code before beginning. Make sure you understand what every file does before you change anything. Chances are it will make your issue fixes simpler if you understand how everything comes together. 
+
