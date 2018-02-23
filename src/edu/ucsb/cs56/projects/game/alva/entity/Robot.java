@@ -51,7 +51,7 @@ public class Robot extends Entity {
 	    }
 	}
 	else{
-	    if(){
+	    if(this.velocity.getY() != 0){
 		Assets.jright.animate(this,win);
 	    }
 	    else{
