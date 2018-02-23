@@ -43,7 +43,7 @@ public class Robot extends Entity {
     @Override
     public void drawIt(Graphics2D win) {
 	if(isleft){
-	    if(holdingJump){
+	    if(this.velocity.getY() != 0){
 		Assets.jleft.animate(this,win);
 	    }
 	    else{
@@ -51,7 +51,7 @@ public class Robot extends Entity {
 	    }
 	}
 	else{
-	    if(holdingJump){
+	    if(){
 		Assets.jright.animate(this,win);
 	    }
 	    else{
