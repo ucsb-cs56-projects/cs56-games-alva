@@ -30,3 +30,18 @@ Currently in the stated issues, there are enough to earn 1000 points (there are 
 Create Instructions Screen #27 https://github.com/ucsb-cs56-projects/cs56-games-alva/issues/27
 
 (i) 
+From what I can understand, the current code is structured as follows:
+
+- GameDriver.java handles inputs from the user as well as the startup screen.
+- MainComp.java loads levels and drawing the game.
+- Separate classes are used for handling things like the physics engine, file management, etc.
+- Levels are stored as text files, which represent tilesets.
+- Assets such as tile images are stored in the assets folder.
+- Objects in the level are represented by the Entity class, with boxes and Alva being extensions of this class.
+- All tile types are extensions of the tile class, including the switch.
+- Commands are handled by the Command class, with a subclass dedicated to each command (jumping, moving, etc).
+
+Overall, I would say the code is well organized at the moment, and it's clear what each part is supposed to do and how they relate to each other.
+
+(j) 
+There is currently no test coverage, so we need to do that.
