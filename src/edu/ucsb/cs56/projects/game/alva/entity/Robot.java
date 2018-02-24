@@ -46,6 +46,9 @@ public class Robot extends Entity {
 	    if(this.velocity.getY() < 0){
 		Assets.jleft.animate(this,win);
 	    }
+        else if(this.velocity.getY() > 0){
+            Assets.fleft.animate(this,win);
+        }
 	    else{
 	    Assets.robotAnim_left.animate(this, win);
 	    }
@@ -54,6 +57,9 @@ public class Robot extends Entity {
 	    if(this.velocity.getY() < 0){
 		Assets.jright.animate(this,win);
 	    }
+        else if(this.velocity.getY() > 0){
+            Assets.fright.animate(this,win);
+        }
 	    else{
 	    Assets.robotAnim.animate(this, win);
 	    }
