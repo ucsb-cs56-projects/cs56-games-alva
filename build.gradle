@@ -24,4 +24,30 @@ tasks.matching { task ->
 	task.name.startsWith('ant-')
 }*.group = 'Ant'
 
+// From here on, the "normal" build.gradle file
 
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName ='edu.ucsb.cs56.projects.game.alva.GameMain'
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/edu/ucsb/cs56/projects/game/alva']
+		}
+		resources {
+			srcDirs = ['src/assets']
+		}
+	}
+}
+
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testCompile 'junit:junit:4.12'
+}
