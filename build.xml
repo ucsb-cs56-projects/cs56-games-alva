@@ -24,11 +24,7 @@
   <target name="clean" >
     <delete dir="build" quiet="true" />
     <delete dir="dist" quiet="true" />
-    <!--   <delete dir="javadoc" quiet="true" />  Removing the cleaning of the javadoc for the specific target, so it isn't continuously accidentally removed and modified on GitHub-->
-  </target>
-
-  <target name="cleanJavadoc" >
-    <delete dir="javadoc" quiet="true" />
+    <delete dir="javadoc" quiet="true" /> 
   </target>
 
   <target name="test" depends="compile">
