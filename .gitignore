@@ -1,5 +1,6 @@
 *.class
-gradle-4.5.1/lib/*
+gradle-4.5.1/*
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
