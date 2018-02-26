@@ -43,17 +43,23 @@ public class Robot extends Entity {
     @Override
     public void drawIt(Graphics2D win) {
 	if(isleft){
-	    if(this.velocity.getY() != 0){
+	    if(this.velocity.getY() < 0){
 		Assets.jleft.animate(this,win);
 	    }
+        else if(this.velocity.getY() > 0){
+            Assets.fleft.animate(this,win);
+        }
 	    else{
 	    Assets.robotAnim_left.animate(this, win);
 	    }
 	}
 	else{
-	    if(this.velocity.getY() != 0){
+	    if(this.velocity.getY() < 0){
 		Assets.jright.animate(this,win);
 	    }
+        else if(this.velocity.getY() > 0){
+            Assets.fright.animate(this,win);
+        }
 	    else{
 	    Assets.robotAnim.animate(this, win);
 	    }

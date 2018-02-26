@@ -20,7 +20,8 @@ This games objective is to create a fun and interesting platformer where you mov
 * Animation on non-Linux machines. This game uses Linux graphics and runs unbearably slow on Windows and Mac. Find a way to run animation on these machines at the same rate as on Linux. 
 
 ## How to Run
-To start the game, put "ant run" into the command line (no quotations).
+To start the game, put "./gradlew run" into the command line (no quotations).
+(Alternitively, put "ant run")
 
 ### Hit Space bar to use Flip Switches
 
