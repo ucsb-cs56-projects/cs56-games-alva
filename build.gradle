@@ -1,7 +1,8 @@
 /*
  * This file is used to build the Alva game using a Gradle interface
  * By Ray Muhlenkamp, 2/25/18
- * 
+ * To simply run game, type ./gradlew run
+ *
  */
 
 /*
