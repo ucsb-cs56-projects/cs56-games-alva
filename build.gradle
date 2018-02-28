@@ -1,0 +1,54 @@
+/*
+ * This file is used to build the Alva game using a Gradle interface
+ * By Ray Muhlenkamp, 2/25/18
+ * To simply run game, type ./gradlew run
+ *
+ */
+
+/*
+ * Import existing/backup Ant build
+ * prefix all task names with
+ * 'ant-'.
+*/
+
+ant.importBuild('build.xml') { antTaskName ->
+	"ant-${antTaskName}".toString()
+} 
+
+
+/* 
+ * Set group property for all 
+ * Ant tasks.
+*/
+
+tasks.matching { task ->
+	task.name.startsWith('ant-')
+}*.group = 'Ant'
+
+// From here on, the "normal" build.gradle file
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName ='edu.ucsb.cs56.projects.game.alva.GameMain'
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/edu/ucsb/cs56/projects/game/alva']
+		}
+		resources {
+			srcDirs = ['src/assets']
+		}
+	}
+}
+
+
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testCompile 'junit:junit:4.12'
+}

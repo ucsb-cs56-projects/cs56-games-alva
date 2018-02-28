@@ -154,9 +154,11 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 			    */}
 
 	}
+
 	/**Not implemented yet
-	 * @param arg0 passes an object of type MouseEvent 
+	 * @param e passes an object of type MouseEvent 
 	 */
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 	    int mx = e.getX();
