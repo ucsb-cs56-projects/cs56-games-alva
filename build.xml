@@ -2,7 +2,7 @@
 <project default="compile">
 
   <property name="mainClass" value="edu.ucsb.cs56.projects.game.alva.GameMain" />
-  <property name="javadocDest" value="${webRoot}/${projectPath}/javadoc" /> 
+  <property name="javadocDest" value="${webRoot}/${projectPath}/build/docs/javadoc" /> 
   <property name="javadocURL" value="${webBaseUrl}/${projectPath}/javadoc" /> 
 
   <path id="project.class.path">
