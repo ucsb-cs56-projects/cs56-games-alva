@@ -63,9 +63,9 @@ public class Switch extends Tile {
 	@Override
 	public void drawIt(Graphics2D win) {
 		if(active) {
-			Assets.Switch1.draw(this, win);
+            Assets.SwitchOff.draw(this, win);
 		} else {
-			Assets.Switch2.draw(this, win);
+			Assets.SwitchOn.draw(this, win);
 		}
 	}
 }
