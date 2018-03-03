@@ -15,12 +15,14 @@ public class Robot extends Entity {
     private static Robot r;
     public boolean holdingJump;
     private boolean isGrabbing;
+    private boolean isSwitching;
     public boolean isleft;
  /**Calls on Parent Class Entity constructor to create an instance of rectangle object, sets the objects's initial position, velocity, width, and height, and sets initial boolean value for 'isGrabbing'
   */ 
     private Robot() {
         super(new Vector2(200, 400), new Vector2(0, 0), 65, 100);
         isGrabbing = false;
+	isSwitching = false;
     }
     /**Creates an instance of robot
      * @return an instance of robot
@@ -37,6 +39,14 @@ public class Robot extends Entity {
     public void setGrabbing(boolean grabbing) {
         isGrabbing = grabbing;
     }
+
+    public void setSwitching(boolean switching){
+	isSwitching = switching;
+    }
+
+    public boolean getSwitching(){
+	return isSwitching;
+    }
     /**Override the inheried drawIt function to draw robot instance facing left or right depending on direction its moving
      * @param win Graphics2D object that represents the window object for drawing a GUI
      */
@@ -49,7 +59,10 @@ public class Robot extends Entity {
         else if(this.velocity.getY() > 0){
             Assets.fleft.animate(this,win);
         }
-	    else{
+	else if (isSwitching){
+	    Assets.lSwitch.animate(this,win);
+	}
+	else{
 	    Assets.robotAnim_left.animate(this, win);
 	    }
 	}
@@ -60,6 +73,9 @@ public class Robot extends Entity {
         else if(this.velocity.getY() > 0){
             Assets.fright.animate(this,win);
         }
+       else if (isSwitching){
+	    Assets.lSwitch.animate(this,win);
+	}
 	    else{
 	    Assets.robotAnim.animate(this, win);
 	    }
