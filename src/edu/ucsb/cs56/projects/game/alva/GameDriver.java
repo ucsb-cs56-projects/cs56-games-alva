@@ -49,11 +49,13 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		addKeyListener(this);		//starts the key thread to log key strokes
 		setFocusable(true);
 		addMouseListener(this);
+	
+		
 	}
 /**By default paints background
  */
    public void update(Graphics window){
-	   paint(window);
+	   paintComponent(window);
    }
 	/**Makes value an instance variable of class GameDriver 
 	 * @param value passes a value of type int that made into an instance variable of class GameDriver
@@ -64,7 +66,7 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
    /**Creates a default window
     * @param window Graphics object that represents a window object for drawing to a GUI
     */
-   public void paint(Graphics window)
+   public void paintComponent(Graphics window)
    {
        if(menu == 3){
 	   if(back==null)
@@ -82,33 +84,38 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 	   g2d.drawImage(Assets.LoadScreen, null, 0,0);
 	    }
        else if(menu == 2){
+       back = (BufferedImage) createImage(getWidth(), getHeight());
+	   Graphics2D graphToBack = (Graphics2D) back.createGraphics(); 
 	   Graphics2D g2d = (Graphics2D) window;
+	   
 	   setBackground(Color.black);
 	   Font f1 = new Font("arial", Font.BOLD, 50);
-	   g2d.setFont(f1);
-	   g2d.fill3DRect(0,0,1280,720,false);
-	   g2d.setColor(Color.red);
-	   g2d.drawString("Select a Stage:", 1280/2 - 250, 100);
+	   graphToBack.setFont(f1);
+	   graphToBack.fill3DRect(0,0,1280,720,false);
+	   graphToBack.setColor(Color.red);
+	   graphToBack.drawString("Select a Stage:", 1280/2 - 250, 100);
 
 	   //drawing boxes for level selection
-	   g2d.drawRect(140, 200, 200, 100);
-	   g2d.drawRect(140, 400, 200, 100);
-	   g2d.drawRect(540, 200, 200, 100);
-	   g2d.drawRect(540, 400, 200, 100);
-	   g2d.drawRect(940, 200, 200, 100);
-	   g2d.drawRect(940, 400, 200, 100);
+	   graphToBack.drawRect(140, 200, 200, 100);
+	   graphToBack.drawRect(140, 400, 200, 100);
+	   graphToBack.drawRect(540, 200, 200, 100);
+	   graphToBack.drawRect(540, 400, 200, 100);
+	   graphToBack.drawRect(940, 200, 200, 100);
+	   graphToBack.drawRect(940, 400, 200, 100);
 
 	   //drawing Strings within boxes
 	   Font f2 = new Font("arial", Font.BOLD, 47);
-	   g2d.setFont(f2);
-	   g2d.drawString("Stage 1", 140, 270);
-	   g2d.drawString("Stage 4", 140, 470);
-	   g2d.drawString("Stage 2", 540, 270);
-	   g2d.drawString("Stage 5", 540, 470);
-	   g2d.drawString("Stage 3", 940, 270);
+	   graphToBack.setFont(f2);
+	   graphToBack.drawString("Stage 1", 140, 270);
+	   graphToBack.drawString("Stage 4", 140, 470);
+	   graphToBack.drawString("Stage 2", 540, 270);
+	   graphToBack.drawString("Stage 5", 540, 470);
+	   graphToBack.drawString("Stage 3", 940, 270);
 
-	   g2d.setFont(f1);
-	   g2d.drawString("  Quit", 940, 470);
+	   graphToBack.setFont(f1);
+	   graphToBack.drawString("  Quit", 940, 470); 
+	   
+	   g2d.drawImage(back, 0, 0, this);
        }
 	   
          
