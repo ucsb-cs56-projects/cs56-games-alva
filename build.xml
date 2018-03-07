@@ -2,8 +2,7 @@
 <project default="compile">
 
   <property name="mainClass" value="edu.ucsb.cs56.projects.game.alva.GameMain" />
-
-  <property name="javadocDest" value="${webRoot}/${projectPath}/javadoc" /> 
+  <property name="javadocDest" value="${webRoot}/${projectPath}/build/docs/javadoc" /> 
   <property name="javadocURL" value="${webBaseUrl}/${projectPath}/javadoc" /> 
 
   <path id="project.class.path">
@@ -25,7 +24,7 @@
   <target name="clean" >
     <delete dir="build" quiet="true" />
     <delete dir="dist" quiet="true" />
-    <delete dir="javadoc" quiet="true" />
+    <delete dir="javadoc" quiet="true" /> 
   </target>
 
   <target name="test" depends="compile">

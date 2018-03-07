@@ -24,7 +24,9 @@ public class InputHandler {
 	int delay;
     /** constructor that sets the value of all variables, and sets value of Robot and World object to the appropriate passed parameter 
      @param e Robot object that the reference variable r is set to for InputHandler object
-    @param w World object that the reference variable w is set to for InputHandler object */
+    @param w World object that the reference variable w is set to for InputHandler object 
+   @param g GameDriver object that the reference variable gd is set to for InputHandler object 
+   */
     public InputHandler(Robot e, World w, GameDriver g) {
 	gd = g; 
 		holdingJump = false;
