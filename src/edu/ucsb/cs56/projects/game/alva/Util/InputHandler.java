@@ -94,6 +94,7 @@ public class InputHandler {
 				if(r.getBounds().intersects(s.getBounds()) && timer > delay) {
 					new SwitchCommand(r, s).execute();
 					System.out.println("Sending switch command");
+                    r.setSwitching(true);
 					timer = 0;
 				}
 			}
@@ -114,6 +115,9 @@ public class InputHandler {
 		    gd.i = 4; gd.menu = 3;
 		}
 		timer++;
+        if (timer == 80){
+            r.setSwitching(false);
+        }
 	}
 
 }

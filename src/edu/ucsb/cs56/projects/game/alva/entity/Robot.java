@@ -60,7 +60,7 @@ public class Robot extends Entity {
             Assets.fleft.animate(this,win);
         }
 	else if (isSwitching){
-	    Assets.lSwitch.animate(this,win);
+	    Assets.lSwitch.animateStill(this,win);
 	}
 	else{
 	    Assets.robotAnim_left.animate(this, win);
@@ -74,7 +74,7 @@ public class Robot extends Entity {
             Assets.fright.animate(this,win);
         }
        else if (isSwitching){
-	    Assets.lSwitch.animate(this,win);
+	    Assets.rSwitch.animateStill(this,win);
 	}
 	    else{
 	    Assets.robotAnim.animate(this, win);
