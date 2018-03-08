@@ -81,6 +81,7 @@ public class InputHandler {
 								.getPosition().getX()) {
 							new GrabCommand(b).execute();
 							r.setGrabbing(true);
+                            r.setGrabbingOnLeft(r.getPosition().getX() < b.getPosition().getX());
 						}
 					}
 				}
