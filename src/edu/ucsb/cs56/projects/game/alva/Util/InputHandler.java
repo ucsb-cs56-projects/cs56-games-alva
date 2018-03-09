@@ -47,7 +47,11 @@ public class InputHandler {
 	 *            The actual keys
 	 */
 	public void handleInput(boolean[] keys) {
+	    
 
+	    if (r.getBounds().intersects(w.getFinish().getBounds())){
+		gd.menu = 2;
+	    }
 		if (keys[0]) {
 			if (r.getState() == State.STATE_GROUND && !holdingJump) {
 				jump.execute();
@@ -69,7 +73,10 @@ public class InputHandler {
 			standStill.execute();
 		}
 
+		
+
 		if (keys[4]) {
+		        
 			Robot r = Robot.getInstance();
 			for (Entity ent : w.getEntities()) {
 				if (ent instanceof Box) {
