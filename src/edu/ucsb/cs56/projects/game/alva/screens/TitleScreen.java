@@ -5,6 +5,10 @@
 
 package edu.ucsb.cs56.projects.game.alva;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+
 
 public class TitleScreen implements Screen 
 {
@@ -15,12 +19,12 @@ public class TitleScreen implements Screen
 		this.mc = MC;
 	}
 
-	public void update() { 
-	
+	public void update(Graphics2D win) { 
+		render(win);	
 	}
 
-	public void render() {
-
+	public void render(Graphics2D win) {
+        	win.drawImage(Assets.LoadScreen, null, 0,0);
 	}
 
 
