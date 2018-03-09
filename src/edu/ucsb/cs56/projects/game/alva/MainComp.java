@@ -18,6 +18,8 @@ public class MainComp extends GameDriver {
      * Various fields Clear: clear the screen for drawing InputHandler: handled
      * input for main character
      */
+
+    private Screen currentScreen;	
     private Rectangle clear;
     private InputHandler input;
     private String[] levelfiles;
@@ -30,10 +32,12 @@ public class MainComp extends GameDriver {
     Camera c;
     int levelState;
     FileManager fManager;
+
 /**Instatiates all Assets and animations, sets the measurement for time, instantiates a Camera object that starts at the origin, creates an instance of robot object, sets the level, creates a FileManager object, creates a File object of 'src/assests/World1.txt', instantiates World object and addes Entity objects to it,instantiates InputHandler objects and a PhysicsEngine object, creates a rectangle object; sets the playing board and gets everything ready and instantiated.
  */
     public MainComp() {
-	levelfiles = new String[]{"src/assets/World1.txt","src/assets/World2.txt","src/assets/World3.txt","src/assets/World4.txt","src/assets/World5.txt"};;
+	changeScreen(new TitleScreen());
+        levelfiles = new String[]{"src/assets/World1.txt","src/assets/World2.txt","src/assets/World3.txt","src/assets/World4.txt","src/assets/World5.txt"};;
         Assets.loadAssets();
 	start = System.currentTimeMillis();
 	c = new Camera(0, 0);
@@ -48,6 +52,18 @@ public class MainComp extends GameDriver {
 	//pe = new PhysicsEngine(w);
 	clear = new Rectangle(-500, -500, w.getWidth() * 100 + 1000, w.getHeight() * 100 + 1000);
     }
+
+/**
+ *  Changes the Screen object that MainComp is currently using to display the GUI
+ *  @param newScreen Screen object that designates what Screen to now draw to the GUI
+ */
+
+    public void changeScreen(Screen newScreen){
+	this.currentScreen = newScreen;
+
+    }
+
+
 /**Overrides the draw function to update window object after each registered input 
  * @param win Graphics2D object that represents the window object for drawing a GUI
  */

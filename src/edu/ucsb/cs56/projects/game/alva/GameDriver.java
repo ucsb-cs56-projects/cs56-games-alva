@@ -30,8 +30,8 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 	protected BufferedImage back;
         protected BufferedImage home;
 	protected int timer = 6;
-    public static int menu;
-    public static int i;
+        public static int menu;
+        public static int i;
 	/**Set up all variables related to the game, starts the key thread to log key strokes, sets the background color to black 
 	 */
 	public GameDriver()
@@ -42,7 +42,7 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		keys = new boolean[16];
 		menu = 1;
 		i = 4;
-    	setBackground(Color.BLACK);
+         	setBackground(Color.BLACK);
 		setVisible(true);
 	   
 		new Thread(this).start();
@@ -79,12 +79,14 @@ public abstract class GameDriver extends Canvas implements KeyListener, Runnable
 		win2D.drawImage(back, null, 0, 0);
 
        }
+
        else if(menu == 1){
 	   Graphics2D g2d = (Graphics2D) window;
 	   g2d.drawImage(Assets.LoadScreen, null, 0,0);
 	    }
+
        else if(menu == 2){
-       back = (BufferedImage) createImage(getWidth(), getHeight());
+           back = (BufferedImage) createImage(getWidth(), getHeight());
 	   Graphics2D graphToBack = (Graphics2D) back.createGraphics(); 
 	   Graphics2D g2d = (Graphics2D) window;
 	   
