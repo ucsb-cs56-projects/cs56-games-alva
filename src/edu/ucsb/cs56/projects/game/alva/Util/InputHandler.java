@@ -49,7 +49,6 @@ public class InputHandler {
 	 *            The actual keys
 	 */
 	public void handleInput(boolean[] keys) {
-        System.out.println(r.getFinished() + ", " + clearTimer);
 	    
 
 	    if (r.getBounds().intersects(w.getFinish().getBounds())){
