@@ -119,21 +119,7 @@ public class InputHandler {
 				}
 			}
 		}
-		if(keys[5]) {
-		    gd.i = 0; gd.changeScreen(3);
-		}
-		if(keys[12]) {
-		    gd.i = 1; gd.changeScreen(3);
-		}
-		if(keys[13]){
-		    gd.i = 2; gd.changeScreen(3);
-		}
-		if(keys[14]){
-		    gd.i = 3; gd.changeScreen(3);
-		}
-		if(keys[15]){
-		    gd.i = 4; gd.changeScreen(3);
-		}
+
 		timer++;
         if (timer == 80){
             r.setSwitching(false);

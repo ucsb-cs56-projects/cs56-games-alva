@@ -28,9 +28,8 @@ public class GameScreen implements Screen {
 		mc.c.update(mc.r, mc.w);
 		mc.input.handleInput(mc.keys);
 		mc.pe.update(mc.dt);
-	//	win.translate(mc.c.getX(), mc.c.getY());
 		render(win);
-	//	win.translate(-mc.c.getX(), -mc.c.getY());
+
 
 	}
 
