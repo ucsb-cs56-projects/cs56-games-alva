@@ -21,6 +21,7 @@ public class InputHandler {
 	World w;
 	boolean spacePressed;
 	int timer;
+    int clearTimer;
 	int delay;
     /** constructor that sets the value of all variables, and sets value of Robot and World object to the appropriate passed parameter 
      @param e Robot object that the reference variable r is set to for InputHandler object
@@ -37,6 +38,7 @@ public class InputHandler {
 		this.r = e;
 		this.w = w;
 		timer = 0;
+        clearTimer = 0;
 		delay = 20;
 	}
 
@@ -47,7 +49,21 @@ public class InputHandler {
 	 *            The actual keys
 	 */
 	public void handleInput(boolean[] keys) {
+	    
 
+	    if (r.getBounds().intersects(w.getFinish().getBounds())){
+            r.setFinished(true);
+            standStill.execute();
+            clearTimer++;
+            if (clearTimer > 500){
+                r.setFinished(false);
+                clearTimer = -1;
+                gd.menu = 2;
+            }
+            return;
+	    } else {
+            r.setFinished(false);
+        }
 		if (keys[0]) {
 			if (r.getState() == State.STATE_GROUND && !holdingJump) {
 				jump.execute();
@@ -69,7 +85,10 @@ public class InputHandler {
 			standStill.execute();
 		}
 
+		
+
 		if (keys[4]) {
+		        
 			Robot r = Robot.getInstance();
 			for (Entity ent : w.getEntities()) {
 				if (ent instanceof Box) {

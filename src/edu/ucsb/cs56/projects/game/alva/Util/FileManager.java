@@ -7,6 +7,7 @@ import java.io.FileReader;
 import edu.ucsb.cs56.projects.game.alva.world.World;
 import edu.ucsb.cs56.projects.game.alva.entity.Box;
 import edu.ucsb.cs56.projects.game.alva.world.Switch;
+import edu.ucsb.cs56.projects.game.alva.entity.Finish;
 /** class that creates the levels of the game through the use of the text file corresponding to every level */
 public class FileManager {
 	
@@ -15,6 +16,7 @@ public class FileManager {
 	private final int box = 3;
         private final int Switch = 4;
         private final int Back = 5;
+    private final int Finish = 6;
     /** method that takes reads file that is passed as a parameter, and creates the level based on the file's level 
      @param f File object that is read to build the world. First and last lines of the file are specifications for the Window and Camera objects. All intermediate lines are specifications on world layout.
     @return World object that is created based on the file passed as the parameter*/
@@ -73,7 +75,15 @@ public class FileManager {
 					    w.addTile(i, counter-1, World.background);
 					    w.addSwitch(new Switch(i, (counter - 1), w), i, (counter - 1));
 					    break;
-					case Back: w.addTile(i, counter-1, World.background);break;
+					case Back:
+					    w.addTile(i, counter-1, World.background);
+					    break;
+					case Finish:
+					    Finish fin = new Finish(new Vector2(i * 100, (counter - 1) * 100));
+					    w.addEntity(fin);
+					    w.addTile(i, counter - 1, World.background);
+					    w.setFinish(fin);
+					    break;
 					}
 				}
 				

@@ -18,6 +18,7 @@ public class Robot extends Entity {
     private boolean isSwitching;
     public boolean isleft;
     private boolean grabbingOnLeft;
+    private boolean isFinished;
  /**Calls on Parent Class Entity constructor to create an instance of rectangle object, sets the objects's initial position, velocity, width, and height, and sets initial boolean value for 'isGrabbing'
   */ 
     private Robot() {
@@ -25,6 +26,7 @@ public class Robot extends Entity {
         isGrabbing = false;
         isSwitching = false;
         grabbingOnLeft = false;
+        isFinished = false;
     }
     /**Creates an instance of robot
      * @return an instance of robot
@@ -43,17 +45,28 @@ public class Robot extends Entity {
     }
 
     /**Sets "isSwitching" to boolean value passed in as argument
-     * @param grabbing pass in value of type boolean to set value of isSwitching
+     * @param switching pass in value of type boolean to set value of isSwitching
      */
     public void setSwitching(boolean switching){
 	isSwitching = switching;
     }
     
     /**Sets "grabbingOnLeft" to boolean value passed in as argument
-     * @param grabbing pass in value of type boolean to set value of grabbingOnLeft
+     * @param side pass in value of type boolean to set value of grabbingOnLeft
      */
     public void setGrabbingOnLeft(boolean side){
         grabbingOnLeft = side;
+    }
+    
+    /**Sets "isFinished" to boolean value passed in as argument
+     * @param finished pass in value of type boolean to set value of isFinished
+     */
+    public void setFinished(boolean finished){
+        isFinished = finished;
+    }
+    
+    public boolean getFinished(){
+        return isFinished;
     }
 
 
@@ -62,7 +75,7 @@ public class Robot extends Entity {
      */
     @Override
     public void drawIt(Graphics2D win) {
-    if (isGrabbing){
+    if (isGrabbing && !isFinished){
         if (grabbingOnLeft){
             Assets.rGrab.animate(this, win);
         }
@@ -71,15 +84,17 @@ public class Robot extends Entity {
         }
     }
 	else if(isleft){
-        /*
-	    if(this.velocity.getY() < 0){
+        if (isFinished){
+            Assets.lFinish.animateStill(this, win);
+        }
+	    else if(this.velocity.getY() < 0){
 		Assets.jleft.animate(this,win);
 	    }
         else if(this.velocity.getY() > 0){
             Assets.fleft.animate(this,win);
         }
         
-        else */if (isSwitching){
+        else if (isSwitching){
             Assets.lSwitch.animateStill(this,win);
         }
         else{
@@ -87,8 +102,10 @@ public class Robot extends Entity {
             }
 	}
 	else{
-        
-	    if(this.velocity.getY() < 0){
+        if (isFinished){
+            Assets.rFinish.animateStill(this, win);
+        }
+	    else if(this.velocity.getY() < 0){
 		Assets.jright.animate(this,win);
 	    }
         else if(this.velocity.getY() > 0){
