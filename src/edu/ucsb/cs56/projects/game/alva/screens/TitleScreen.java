@@ -20,11 +20,17 @@ public class TitleScreen implements Screen
 	}
 
 	public void update(Graphics2D win) { 
-		render(win);	
-	}
+		mc.input.handleInput(mc.keys);
+		win.translate(mc.c.getX(), mc.c.getY());
+		render(win);
+		win.translate(-mc.c.getX(), -mc.c.getY());	}
 
 	public void render(Graphics2D win) {
         	win.drawImage(Assets.LoadScreen, null, 0,0);
+	}
+	
+	public int handleMouse(int mx, int my) {
+		return -2;
 	}
 
 

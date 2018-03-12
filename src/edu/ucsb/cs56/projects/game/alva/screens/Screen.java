@@ -13,5 +13,7 @@ public interface Screen
 	public void update(Graphics2D win);
 
 	public void render(Graphics2D win);
+	
+	public int handleMouse(int mx, int my);
 
 }
