@@ -58,7 +58,7 @@ public class InputHandler {
             if (clearTimer > 500){
                 r.setFinished(false);
                 clearTimer = -1;
-                gd.menu = 2;
+                gd.changeScreen(2);
             }
             return;
 	    } else {
