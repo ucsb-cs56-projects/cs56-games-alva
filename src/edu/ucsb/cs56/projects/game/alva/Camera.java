@@ -47,5 +47,9 @@ public class Camera {
         }
 	}
 	
+	public void recenter() {
+		setX(0);
+		setY(0);
+	}
 
 }

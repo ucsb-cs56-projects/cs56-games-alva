@@ -68,4 +68,18 @@ public class Animation {
         textureList.get(position).draw(e, win);
     }
     
+    /**Enables Entity objects or objects that extend Entity class to move. Used for animations when standing still.
+     * @param e passes object of type Entity for so objects can move; can pass objects that extend Entity 
+     * @param win Graphics2D object that represents the window object for drawing to a GUI
+     */
+    public void animateStill(Entity e, Graphics2D win) {
+        timer++;
+        if(timer > delay) {
+            timer = 0;
+            position++;
+            position = position % textureList.size();
+        }
+        textureList.get(position).draw(e, win);
+    }
+    
 }
