@@ -9,7 +9,6 @@ This games objective is to create a fun and interesting platformer where you mov
 
 ## Features to add:
 * Adding obstacles to test players reaction time and ability
-* Add an ultimate objective to the game, a way to win. Think the flag pole in Mario.
 * Create a background.
 * Make new maps
 * Add level editor GUI
@@ -40,3 +39,9 @@ To play, simply use A and D to move left and right. W is to jump. SPACE is used 
 * Make sure that you follow conventions already determined. Animations should be loaded in Animation.java, edits to building the world should be handled in World.java, etc. 
 * Read all of the code before beginning. Make sure you understand what every file does before you change anything. Chances are it will make your issue fixes simpler if you understand how everything comes together. 
 
+## W18 Final Remarks
+* Like the previous quarter said, this code is factored really well and is fairly easy to understand. Take some time to go through the code and get an understanding of how everything works, it shouldn't take too long. Take a look at GameDriver, MainComp, and the stuff in the Util folder; that should help you understand how the game runs.
+* Any future "screens" that are implemented (instructions screen, game over screen, etc) should be created using the interface and current examples found in the screens folder.
+* Once again, as previous remarks have suggested, follow the conventions already in place, such as Animation and Assets handling.
+* Think of more features to be added. There are plenty of unused assets in the assets folder, so go take a look in there. The game is more or less a blank slate, so add what you think could improve the gameplay.
+* Finally, there are currently two build flows implemented, Gradle and Ant. Although Ant is still included, it is only for backwards compatability, and any future developments in that area should be accomplished using the Gradle build flow implemented using the gradle wrapper and build.gradle file.
